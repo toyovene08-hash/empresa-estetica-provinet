@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Empresa Estética Provinet — Blog Educativo de Belleza y Cuidado Personal</title>
+  <meta name="description" content="Guías educativas sobre cremas para pies, cuidado del cabello y estética de belleza para hombres y mujeres. Aprende sobre ingredientes, rutinas y productos.">
+  <meta name="keywords" content="cremas para pies, cuidado del cabello, estética belleza, rutina skincare, belleza hombre mujer, cuidado personal, peluquería educativa">
+  <meta name="robots" content="index, follow">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+    :root{
+      --bg:#f9f6f2;--bg2:#f2ede6;--surface:#fff;--border:#e4dbd0;--border2:#d5c9ba;
+      --ink:#141010;--ink2:#2a1e18;--ink3:#7a6558;--muted:#b0978a;
+      --coral:#c06858;--coral2:#dc8878;--coral-bg:rgba(192,104,88,.07);--coral-bdr:rgba(192,104,88,.22);
+      --teal:#3a7878;--teal2:#54a0a0;--teal-bg:rgba(58,120,120,.07);
+      --gold:#b8903a;--gold2:#d4ae52;--gold-bg:rgba(184,144,58,.07);
+      --lavender:#7868a8;--lav-bg:rgba(120,104,168,.07);
+      --font-d:'Tenor Sans',serif;
+      --font-b:'Raleway',sans-serif;
+      --font-m:'IBM Plex Mono',monospace;
+      --r:3px;--max:1300px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:var(--bg2)}
+    ::-webkit-scrollbar-thumb{background:var(--coral);border-radius:2px}
+    .container{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+    /* TOPBAR */
+    .topbar{background:var(--ink2);color:rgba(255,255,255,.5);font-family:var(--font-m);font-size:10px;letter-spacing:.08em;padding:7px 28px;display:flex;justify-content:space-between;align-items:center}
+    .tb-r{display:flex;gap:20px}
+    .tb-r span{color:rgba(255,255,255,.5);cursor:pointer;transition:color .2s}
+    .tb-r span:hover{color:rgba(255,255,255,.9)}
+
+    /* HEADER */
+    header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 20px rgba(192,104,88,.06)}
+    .hdr{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:0 28px;height:70px}
+    .logo{display:flex;align-items:center;gap:14px}
+    .logo-ico{width:44px;height:44px;background:linear-gradient(135deg,var(--coral),var(--coral2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 4px 12px rgba(192,104,88,.3)}
+    .logo-texts{display:flex;flex-direction:column}
+    .logo-name{font-family:var(--font-d);font-size:20px;color:var(--ink);line-height:1.1;letter-spacing:.06em}
+    .logo-name span{color:var(--coral)}
+    .logo-badge{font-family:var(--font-m);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+    nav{display:flex;gap:28px;align-items:center}
+    nav span{font-family:var(--font-b);font-size:13px;font-weight:600;color:var(--ink3);cursor:pointer;transition:color .2s;position:relative;padding-bottom:3px;letter-spacing:.03em}
+    nav span::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--coral);transition:width .22s}
+    nav span:hover{color:var(--coral)}
+    nav span:hover::after{width:100%}
+    nav span.active{color:var(--coral)}
+    nav span.active::after{width:100%}
+
+    /* AD */
+    .ad{background:var(--bg2);border:1px dashed var(--border2);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--font-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;position:relative}
+    .ad::before{content:'PUBLICIDAD';position:absolute;top:6px;left:10px;font-size:8px;color:var(--muted);opacity:.6}
+    .ad-top{height:90px;max-width:728px;margin:20px auto}
+    .ad-side{height:250px}
+    .ad-mid{height:90px;margin:36px 0}
+
+    /* HERO — split layout diferente */
+    .hero{background:var(--surface);position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    .hero-left-accent{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--coral),var(--gold),var(--teal))}
+    .hero-inner{display:grid;grid-template-columns:420px 1fr;min-height:500px;position:relative;z-index:1}
+    .hero-panel{background:linear-gradient(160deg,#1a0e0a,#2e1810);padding:64px 52px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+    .hero-panel-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(192,104,88,.08) 1px,transparent 1px);background-size:20px 20px}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(192,104,88,.15);border:1px solid rgba(192,104,88,.3);border-radius:2px;padding:4px 12px;font-family:var(--font-m);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral2);margin-bottom:24px;position:relative;z-index:1}
+    .hero-h1{font-family:var(--font-d);font-size:clamp(44px,5vw,72px);line-height:.95;color:#fff;margin-bottom:20px;letter-spacing:.04em;position:relative;z-index:1}
+    .hero-h1 em{color:var(--coral2);display:block;font-style:normal}
+    .hero-desc{font-size:14px;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:28px;position:relative;z-index:1}
+    .hero-pills{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+    .hero-pill{display:flex;align-items:center;gap:10px;font-family:var(--font-m);font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.06em}
+    .hero-pill::before{content:'—';color:var(--coral2)}
+    .hero-content{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:var(--bg)}
+    .hero-cats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .hcat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;transition:border-color .3s,box-shadow .3s}
+    .hcat:hover{border-color:var(--coral);box-shadow:0 4px 20px rgba(192,104,88,.1)}
+    .hcat-ico{font-size:32px;margin-bottom:10px}
+    .hcat-lbl{font-family:var(--font-m);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:5px}
+    .hcat-txt{font-size:13px;color:var(--ink3);line-height:1.5}
+    .hcat-wide{grid-column:span 2}
+
+    /* DISC BAND */
+    .disc-band{background:var(--coral-bg);border-top:1px solid var(--coral-bdr);border-bottom:1px solid var(--coral-bdr);padding:10px 0}
+    .disc-inner{display:flex;align-items:center;gap:10px;font-family:var(--font-m);font-size:10px;color:var(--coral);letter-spacing:.05em;max-width:var(--max);margin:0 auto;padding:0 28px}
+
+    /* MAIN */
+    .main-wrap{padding:60px 0}
+    .main-grid{display:grid;grid-template-columns:1fr 310px;gap:52px}
+
+    /* SECTION HEAD — estilo diferente */
+    .sh{margin-bottom:36px}
+    .sh-eyebrow{font-family:var(--font-m);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+    .sh-title{font-family:var(--font-d);font-size:42px;color:var(--ink);line-height:1;letter-spacing:.04em;border-bottom:1px solid var(--border);padding-bottom:14px}
+    .sh-right{display:flex;align-items:flex-end;justify-content:space-between}
+    .sh-sub{font-family:var(--font-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+    /* FILTER */
+    .cat-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+    .cf-btn{font-family:var(--font-m);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:2px;border:1px solid var(--border2);background:var(--surface);color:var(--ink3);cursor:pointer;transition:all .2s}
+    .cf-btn:hover,.cf-btn.on{background:var(--coral);color:#fff;border-color:var(--coral)}
+
+    /* PRODUCT GRID — 2 col grande + 1 pequeño diferente */
+    .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:52px}
+    .pcard{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:box-shadow .25s,transform .25s;cursor:default;display:flex;flex-direction:column}
+    .pcard:hover{box-shadow:0 6px 24px rgba(192,104,88,.12);transform:translateY(-3px)}
+    .pc-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;flex-shrink:0}
+    .pc-stripe{position:absolute;left:0;top:0;bottom:0;width:3px}
+    .c-pies .pc-img{background:linear-gradient(145deg,#f5ece4,#ead8cc)}
+    .c-pies .pc-stripe{background:var(--coral)}
+    .c-cabello .pc-img{background:linear-gradient(145deg,#e4ecf0,#ccdde4)}
+    .c-cabello .pc-stripe{background:var(--teal)}
+    .c-estetica .pc-img{background:linear-gradient(145deg,#f0e4ec,#e4ccd8)}
+    .c-estetica .pc-stripe{background:var(--lavender)}
+    .c-hombre .pc-img{background:linear-gradient(145deg,#e8ede0,#d4e0c8)}
+    .c-hombre .pc-stripe{background:var(--teal2)}
+    .c-piel .pc-img{background:linear-gradient(145deg,#f5f0e4,#ece0c8)}
+    .c-piel .pc-stripe{background:var(--gold)}
+    .pc-body{padding:16px;flex:1;display:flex;flex-direction:column}
+    .pc-cat{font-family:var(--font-m);font-size:8px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+    .cat-pies{color:var(--coral)}
+    .cat-cabello{color:var(--teal)}
+    .cat-estetica{color:var(--lavender)}
+    .cat-hombre{color:var(--teal2)}
+    .cat-piel{color:var(--gold)}
+    .pc-title{font-family:var(--font-d);font-size:17px;color:var(--ink);line-height:1.25;margin-bottom:8px;letter-spacing:.02em}
+    .pc-desc{font-size:13px;color:var(--ink3);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+    .pc-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-family:var(--font-m);font-size:9px;color:var(--muted)}
+
+    /* FULL ARTICLE */
+    .full-art{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:52px}
+    .fa-banner{height:240px;display:flex;align-items:center;justify-content:center;font-size:88px;position:relative;background:linear-gradient(160deg,#f5e8e0,#ead4c8)}
+    .fa-banner-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(192,104,88,.05) 0,rgba(192,104,88,.05) 1px,transparent 1px,transparent 50px)}
+    .fa-overlay{position:absolute;inset:0;background:linear-gradient(to top,var(--surface) 0%,transparent 55%)}
+    .fa-body{padding:32px 40px}
+    .fa-badges{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+    .badge{font-family:var(--font-m);font-size:8px;letter-spacing:.16em;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+    .badge-coral{background:var(--coral-bg);border:1px solid var(--coral-bdr);color:var(--coral)}
+    .badge-edu{border:1px solid var(--border2);color:var(--ink3)}
+    .fa-h1{font-family:var(--font-d);font-size:clamp(28px,4vw,50px);color:var(--ink);line-height:1.05;margin-bottom:14px;letter-spacing:.03em}
+    .fa-byline{display:flex;gap:16px;font-family:var(--font-m);font-size:10px;color:var(--muted);margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+    .fa-text h2{font-family:var(--font-d);font-size:28px;color:var(--ink);margin:30px 0 12px;letter-spacing:.03em}
+    .fa-text h3{font-family:var(--font-m);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--coral);margin:22px 0 9px}
+    .fa-text p{color:var(--ink3);margin-bottom:15px;font-size:15px;line-height:1.85}
+    .fa-text p strong{color:var(--ink)}
+    .callout{background:var(--coral-bg);border-left:2px solid var(--coral);border-radius:0 6px 6px 0;padding:16px 20px;margin:24px 0}
+    .callout-lbl{font-family:var(--font-m);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+    .callout p{color:var(--ink);margin:0;font-size:15px;font-style:italic}
+    .info-box{background:var(--teal-bg);border:1px solid rgba(58,120,120,.18);border-radius:var(--r);padding:16px 20px;margin:22px 0}
+    .info-box-lbl{font-family:var(--font-m);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+    .info-box p{color:var(--ink2);margin:0;font-size:14px;line-height:1.7}
+    .warn-box{background:var(--gold-bg);border-left:2px solid var(--gold);border-radius:0 6px 6px 0;padding:16px 20px;margin:22px 0}
+    .warn-lbl{font-family:var(--font-m);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+    .warn-box p{color:var(--ink2);margin:0;font-size:14px}
+    .info-table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14px}
+    .info-table th{background:var(--ink2);color:#fff;font-family:var(--font-m);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;text-align:left}
+    .info-table td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink3)}
+    .info-table tr:hover td{background:var(--bg2)}
+
+    /* ARTICLE LIST */
+    .alist{display:flex;flex-direction:column}
+    .aitem{display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start;padding:22px 0;border-bottom:1px solid var(--border)}
+    .aitem:last-child{border-bottom:none}
+    .anum{font-family:var(--font-d);font-size:52px;color:var(--border2);line-height:1;text-align:right;padding-top:2px;transition:color .2s;letter-spacing:.02em}
+    .aitem:hover .anum{color:var(--coral)}
+    .ai-cat{font-family:var(--font-m);font-size:8px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:5px}
+    .ai-title{font-family:var(--font-d);font-size:20px;color:var(--ink);line-height:1.3;margin-bottom:7px;letter-spacing:.02em}
+    .ai-desc{font-size:13px;color:var(--ink3);line-height:1.65}
+    .ai-meta{margin-top:8px;font-family:var(--font-m);font-size:10px;color:var(--muted);display:flex;gap:10px}
+
+    /* SIDEBAR */
+    .sidebar{display:flex;flex-direction:column;gap:28px}
+    .widget{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .w-head{padding:14px 18px;font-family:var(--font-d);font-size:20px;letter-spacing:.05em}
+    .wh-coral{background:var(--coral);color:#fff}
+    .wh-dark{background:var(--ink2);color:#fff}
+    .w-body{padding:16px 18px}
+    .cat-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px}
+    .cat-row:last-child{border-bottom:none}
+    .cat-row span.cat-lnk{color:var(--ink2);font-weight:500;cursor:default}
+    .cat-badge{font-family:var(--font-m);font-size:10px;background:var(--bg2);color:var(--muted);padding:2px 8px;border-radius:2px}
+    .tip-w{background:var(--ink2);border-radius:8px;padding:20px}
+    .tip-lbl{font-family:var(--font-m);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral2);margin-bottom:10px}
+    .tip-txt{font-family:var(--font-d);font-size:17px;color:#fff;line-height:1.65;letter-spacing:.02em}
+    .tip-by{margin-top:10px;font-family:var(--font-m);font-size:10px;color:rgba(255,255,255,.32)}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:7px}
+    .tag{font-family:var(--font-m);font-size:10px;letter-spacing:.04em;color:var(--ink3);background:var(--bg2);border:1px solid var(--border);padding:4px 10px;border-radius:2px;cursor:default;transition:all .2s}
+    .tag:hover{background:var(--coral);color:#fff;border-color:var(--coral)}
+
+    /* KNOW STRIP — horizontal cards diferentes */
+    .know{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 0}
+    .know-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+    .kstat{background:var(--surface);text-align:center;padding:32px 20px}
+    .knum{font-family:var(--font-d);font-size:56px;color:var(--coral);line-height:1;margin-bottom:8px;letter-spacing:.02em}
+    .klbl{font-family:var(--font-m);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+    .kdesc{font-size:13px;color:var(--ink3);margin-top:8px;line-height:1.5}
+
+    /* ABOUT — layout invertido */
+    .about{background:var(--ink2);padding:76px 0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center}
+    .a-label{font-family:var(--font-m);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral2);margin-bottom:14px}
+    .a-h2{font-family:var(--font-d);font-size:50px;color:#fff;line-height:.95;margin-bottom:22px;letter-spacing:.03em}
+    .a-h2 em{color:var(--coral2);font-style:normal;display:block}
+    .a-p{font-size:15px;color:rgba(255,255,255,.5);margin-bottom:14px;line-height:1.85}
+    .disc-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-left:2px solid var(--gold);border-radius:0 6px 6px 0;padding:16px 18px;margin-top:20px}
+    .disc-box p{font-family:var(--font-m);font-size:11px;color:rgba(255,255,255,.45);margin:0;line-height:1.72}
+    .values{display:flex;flex-direction:column;gap:22px}
+    .val{display:flex;gap:16px;align-items:flex-start}
+    .val-ico{width:46px;height:46px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+    .val-t{font-weight:600;color:#fff;margin-bottom:3px;font-size:14px;letter-spacing:.02em}
+    .val-d{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65}
+
+    /* FOOTER */
+    footer{background:var(--ink);border-top:2px solid var(--coral)}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding:52px 0 30px}
+    .f-brand{font-family:var(--font-d);font-size:20px;color:#fff;margin-bottom:10px;letter-spacing:.05em}
+    .f-brand span{color:var(--coral2)}
+    .f-desc{font-size:13px;color:rgba(255,255,255,.3);line-height:1.75}
+    .f-col-title{font-family:var(--font-m);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px}
+    .f-links{display:flex;flex-direction:column;gap:9px}
+    .f-links span{font-size:13px;color:rgba(255,255,255,.3);cursor:default}
+    .f-bottom{border-top:1px solid rgba(255,255,255,.06);padding:18px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-m);font-size:9px;color:rgba(255,255,255,.25)}
+    .f-legal{display:flex;gap:18px}
+    .f-legal span{color:rgba(255,255,255,.25);cursor:pointer}
+    .f-legal span:hover{color:var(--coral2)}
+
+    /* MODALS */
+    .m-ov{position:fixed;inset:0;background:rgba(20,16,16,.92);z-index:1000;display:none;align-items:center;justify-content:center;padding:24px}
+    .m-ov.open{display:flex}
+    .modal{background:var(--surface);border-radius:8px;max-width:760px;width:100%;max-height:85vh;overflow-y:auto;border:1px solid var(--border)}
+    .modal-hd{position:sticky;top:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+    .modal-hd-t{font-family:var(--font-d);font-size:24px;color:var(--ink);letter-spacing:.04em}
+    .modal-x{background:none;border:1px solid var(--border);color:var(--ink3);width:34px;height:34px;border-radius:4px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+    .modal-x:hover{border-color:var(--coral);color:var(--coral)}
+    .modal-bd{padding:28px 24px}
+    .modal-bd h3{font-family:var(--font-m);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin:22px 0 9px}
+    .modal-bd h3:first-child{margin-top:0}
+    .modal-bd p{font-size:14px;color:var(--ink3);margin-bottom:12px;line-height:1.75}
+    .modal-bd ul{padding-left:20px;margin-bottom:12px}
+    .modal-bd ul li{font-size:14px;color:var(--ink3);margin-bottom:5px;line-height:1.7}
+
+    /* COOKIE */
+    .cookie{position:fixed;bottom:0;left:0;right:0;background:var(--ink2);border-top:2px solid var(--coral);padding:16px 24px;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .cookie-txt{font-size:13px;color:rgba(255,255,255,.52);flex:1;line-height:1.6}
+    .cookie-txt span.priv-lnk{color:var(--coral2);text-decoration:underline;cursor:pointer}
+    .c-btns{display:flex;gap:10px;flex-shrink:0}
+    .btn-ca{background:var(--coral);color:#fff;font-family:var(--font-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:3px;padding:8px 18px;cursor:pointer;font-weight:500}
+    .btn-cr{background:transparent;color:rgba(255,255,255,.42);font-family:var(--font-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);border-radius:3px;padding:8px 18px;cursor:pointer}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    .au{animation:fadeUp .65s ease both}
+    .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
+
+    @media(max-width:1024px){.main-grid{grid-template-columns:1fr}.sidebar{display:none}.hero-inner{grid-template-columns:1fr}.hero-panel{padding:52px 32px}.know-grid{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){.tb-r{display:none}.pgrid{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}nav{gap:14px}}
+    @media(max-width:520px){.pgrid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>✦ Blog educativo sobre estética y cuidado personal — Solo contenido informativo</span>
+  <div class="tb-r">
+    <span onclick="openPriv()">Política de Privacidad</span>
+    <span onclick="goTo('nosotros')">Sobre Nosotros</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <div class="logo">
+      <div class="logo-ico">✨</div>
+      <div class="logo-texts">
+        <div class="logo-name">Empresa <span>Estética</span> Provinet</div>
+        <div class="logo-badge">Blog Educativo · Belleza & Cuidado Personal</div>
+      </div>
+    </div>
+    <nav>
+      <span class="active" onclick="goTo('inicio')">Inicio</span>
+      <span onclick="goTo('catalogo')">Cuidados</span>
+      <span onclick="goTo('articulos')">Artículos</span>
+      <span onclick="goTo('nosotros')">Nosotros</span>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left-accent"></div>
+  <div class="hero-inner">
+    <div class="hero-panel">
+      <div class="hero-panel-dots"></div>
+      <div class="hero-eyebrow">✦ Blog Educativo · Estética & Belleza</div>
+      <h1 class="hero-h1">Cuida tu<br>cuerpo con<br><em>conocimiento</em></h1>
+      <p class="hero-desc">Aprende sobre ingredientes activos, rutinas de cuidado, técnicas de estética y tratamientos para pies, cabello y piel. Información educativa gratuita para hombres y mujeres.</p>
+      <div class="hero-pills">
+        <span class="hero-pill">+17 guías documentadas</span>
+        <span class="hero-pill">Sin marcas comerciales</span>
+        <span class="hero-pill">Para hombres y mujeres</span>
+        <span class="hero-pill">100% educativo y gratuito</span>
+      </div>
+    </div>
+    <div class="hero-content au d2">
+      <div class="hero-cats">
+        <div class="hcat hcat-wide">
+          <div class="hcat-ico">🦶</div>
+          <div class="hcat-lbl">Cuidado de pies</div>
+          <div class="hcat-txt">Cremas hidratantes, pedicura, callosidades y tratamientos para talones agrietados. Ingredientes activos y rutinas explicados.</div>
+        </div>
+        <div class="hcat">
+          <div class="hcat-ico">💆</div>
+          <div class="hcat-lbl">Cabello</div>
+          <div class="hcat-txt">Champús, mascarillas, tipos de cabello y tratamientos capilares</div>
+        </div>
+        <div class="hcat">
+          <div class="hcat-ico">💅</div>
+          <div class="hcat-lbl">Estética general</div>
+          <div class="hcat-txt">Skincare, depilación, uñas y rutinas de belleza</div>
+        </div>
+        <div class="hcat">
+          <div class="hcat-ico">🧔</div>
+          <div class="hcat-lbl">Estética masculina</div>
+          <div class="hcat-txt">Barba, afeitado, skin care hombre</div>
+        </div>
+        <div class="hcat">
+          <div class="hcat-ico">🌿</div>
+          <div class="hcat-lbl">Ingredientes activos</div>
+          <div class="hcat-txt">Retinol, ácido hialurónico, niacinamida y más</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISC BAND -->
+<div class="disc-band">
+  <div class="disc-inner">ℹ️ &nbsp;Este blog es exclusivamente educativo e informativo. No realizamos ventas ni ofrecemos servicios comerciales de ningún tipo.</div>
+</div>
+
+<!-- AD TOP -->
+<div class="container">
+  <div class="ad ad-top">[ Espacio publicitario — 728×90 ]</div>
+</div>
+
+<!-- MAIN -->
+<div class="container main-wrap" id="catalogo">
+  <div class="main-grid">
+    <main>
+
+      <div class="sh au">
+        <div class="sh-eyebrow">Guía completa</div>
+        <div class="sh-right">
+          <div class="sh-title">Estética & Cuidado Personal</div>
+          <span class="sh-sub">17 guías</span>
+        </div>
+      </div>
+
+      <div class="cat-filter">
+        <button class="cf-btn on" data-cat="all">Todos</button>
+        <button class="cf-btn" data-cat="pies">Cuidado de pies</button>
+        <button class="cf-btn" data-cat="cabello">Cabello</button>
+        <button class="cf-btn" data-cat="estetica">Estética general</button>
+        <button class="cf-btn" data-cat="hombre">Estética masculina</button>
+        <button class="cf-btn" data-cat="piel">Piel e ingredientes</button>
+      </div>
+
+      <div class="pgrid" id="pgrid">
+
+        <!-- CUIDADO DE PIES -->
+        <div class="pcard c-pies au d1" data-cat="pies">
+          <div class="pc-img"><div class="pc-stripe"></div>🦶</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-pies">Cuidado de pies</div>
+            <h3 class="pc-title">Cremas hidratantes para pies: ingredientes clave</h3>
+            <p class="pc-desc">La urea (10–40%), la glicerina y el ácido láctico son los ingredientes más efectivos en cremas para pies. La urea tiene acción queratolítica (exfolia la piel engrosada) e hidratante simultáneamente. Aprende qué concentración es adecuada para cada tipo de sequedad.</p>
+            <div class="pc-footer"><span>9 min · May 2025</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-pies au d2" data-cat="pies">
+          <div class="pc-img"><div class="pc-stripe"></div>🩺</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-pies">Cuidado de pies</div>
+            <h3 class="pc-title">Talones agrietados: causas y cuidados</h3>
+            <p class="pc-desc">Las fisuras del talón se producen por déficit de hidratación, presión mecánica y déficit de nutrientes (zinc, omega-3). El tratamiento educativo incluye exfoliación suave, crema de urea 20–40% y calcetines de algodón oclusivos por la noche. Aprende cuándo es señal de una afección sistémica.</p>
+            <div class="pc-footer"><span>8 min · Abr 2025</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-pies au d3" data-cat="pies">
+          <div class="pc-img"><div class="pc-stripe"></div>💅</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-pies">Cuidado de pies</div>
+            <h3 class="pc-title">Pedicura: pasos, instrumentos y materiales</h3>
+            <p class="pc-desc">La pedicura profesional incluye remojo (ablanda la piel endurecida), exfoliación con piedra pómez o archivo eléctrico, hidratación con crema de urea y cuidado de cutículas. Aprende los materiales de los instrumentos (acero inoxidable 420, grano de lima), su esterilización y la diferencia entre pedicura seca y húmeda.</p>
+            <div class="pc-footer"><span>10 min · Mar 2025</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-pies au d4" data-cat="pies">
+          <div class="pc-img"><div class="pc-stripe"></div>🧴</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-pies">Cuidado de pies</div>
+            <h3 class="pc-title">Callosidades: formación y tratamiento</h3>
+            <p class="pc-desc">Las callosidades (hiperqueratosis) son una respuesta protectora de la piel ante la fricción y presión continua. La queratina se acumula en capas. Aprende sobre el papel del ácido salicílico (5–15%) como queratolítico, la diferencia entre callo y ojo de gallo (heloma), y cuándo derivar a un podólogo.</p>
+            <div class="pc-footer"><span>7 min · Feb 2025</span></div>
+          </div>
+        </div>
+
+        <!-- CABELLO -->
+        <div class="pcard c-cabello" data-cat="cabello">
+          <div class="pc-img"><div class="pc-stripe"></div>💆</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-cabello">Cabello</div>
+            <h3 class="pc-title">Tipos de cabello: porosidad, grosor y textura</h3>
+            <p class="pc-desc">El cabello se clasifica por su textura (liso, ondulado, rizado, muy rizado), su grosor (fino, medio, grueso) y su porosidad (baja, media, alta). La porosidad determina qué tan bien el cabello absorbe y retiene la humedad, y es el factor clave para elegir champú, acondicionador y mascarilla adecuados.</p>
+            <div class="pc-footer"><span>11 min · Ene 2025</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-cabello" data-cat="cabello">
+          <div class="pc-img"><div class="pc-stripe"></div>🧪</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-cabello">Cabello</div>
+            <h3 class="pc-title">Champú: pH, tensioactivos y sulfatos</h3>
+            <p class="pc-desc">El champú limpia el cabello mediante tensioactivos que atrapan la grasa y el polvo. Los sulfatos (SLS, SLES) son tensioactivos potentes que pueden resecar el cuero cabelludo sensible. Aprende la diferencia entre champús con y sin sulfatos, el pH ideal (4,5–5,5) y los tensioactivos más suaves (betaínas, glucósidos).</p>
+            <div class="pc-footer"><span>9 min · Dic 2024</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-cabello" data-cat="cabello">
+          <div class="pc-img"><div class="pc-stripe"></div>🌊</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-cabello">Cabello</div>
+            <h3 class="pc-title">Mascarillas capilares: proteínas vs hidratación</h3>
+            <p class="pc-desc">Las mascarillas capilares de proteínas (queratina, proteína de seda, colágeno hidrolizado) reparan el cabello dañado rellenando los huecos de la cutícula. Las mascarillas hidratantes (manteca de karité, aceite de argán, aloe vera) restauran la flexibilidad. Aprende a identificar qué necesita tu cabello y con qué frecuencia aplicar cada tipo.</p>
+            <div class="pc-footer"><span>8 min · Nov 2024</span></div>
+          </div>
+        </div>
+
+        <!-- ESTÉTICA GENERAL -->
+        <div class="pcard c-estetica" data-cat="estetica">
+          <div class="pc-img"><div class="pc-stripe"></div>✨</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-estetica">Estética general</div>
+            <h3 class="pc-title">Rutina de skincare: pasos y orden correcto</h3>
+            <p class="pc-desc">El orden de aplicación en una rutina de skincare sigue la regla del peso molecular: de más ligero a más denso. Limpiador → tónico → suero → contorno de ojos → hidratante → protector solar (mañana). Aprende por qué el orden importa y cómo los ingredientes pueden potenciarse o cancelarse entre sí.</p>
+            <div class="pc-footer"><span>12 min · Oct 2024</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-estetica" data-cat="estetica">
+          <div class="pc-img"><div class="pc-stripe"></div>💅</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-estetica">Estética general</div>
+            <h3 class="pc-title">Manicura y cuidado de uñas: materiales</h3>
+            <p class="pc-desc">La uña está compuesta principalmente de queratina dura. Aprende sobre el esmalte convencional vs el esmalte semipermanente (curado con luz UV/LED), los sistemas de uñas acrílicas y gel, y los ingredientes que fortalecen la uña (biotina, calcio, vitamina E) frente a los que la debilitan (acetona frecuente).</p>
+            <div class="pc-footer"><span>9 min · Sep 2024</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-estetica" data-cat="estetica">
+          <div class="pc-img"><div class="pc-stripe"></div>🪒</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-estetica">Estética general</div>
+            <h3 class="pc-title">Depilación: métodos, cera, láser y afeitado</h3>
+            <p class="pc-desc">La depilación con cera elimina el vello desde la raíz, retrasando su aparición 3–6 semanas. La depilación láser actúa sobre la melanina del folículo piloso. El afeitado solo corta a nivel de la piel sin afectar al folículo. Aprende las diferencias en tiempo de resultado, dolor y contraindicaciones de cada método.</p>
+            <div class="pc-footer"><span>10 min · Ago 2024</span></div>
+          </div>
+        </div>
+
+        <!-- ESTÉTICA MASCULINA -->
+        <div class="pcard c-hombre" data-cat="hombre">
+          <div class="pc-img"><div class="pc-stripe"></div>🧔</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-hombre">Estética masculina</div>
+            <h3 class="pc-title">Cuidado de la barba: aceites y bálsamos</h3>
+            <p class="pc-desc">El aceite de barba hidrata tanto el vello como la piel subyacente, evitando la picazón característica del crecimiento. Los aceites más usados son el jojoba (imita el sebo natural), el argán y el coco. El bálsamo de barba tiene una textura más densa y aporta fijación ligera. Aprende a distinguirlos y cuándo usar cada uno.</p>
+            <div class="pc-footer"><span>8 min · Jul 2024</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-hombre" data-cat="hombre">
+          <div class="pc-img"><div class="pc-stripe"></div>🪮</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-hombre">Estética masculina</div>
+            <h3 class="pc-title">Afeitado clásico: hoja, espuma y técnica</h3>
+            <p class="pc-desc">El afeitado clásico con maquinilla de hoja única produce menos irritación que la maquinilla multihojas porque realiza un solo corte limpio. La espuma de afeitar alcalina (pH 8–9) ablanda el vello y levanta la cutícula. Aprende la técnica correcta (dirección del crecimiento, ángulo de 30°) y los productos de post-afeitado.</p>
+            <div class="pc-footer"><span>9 min · Jun 2024</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-hombre" data-cat="hombre">
+          <div class="pc-img"><div class="pc-stripe"></div>🧴</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-hombre">Estética masculina</div>
+            <h3 class="pc-title">Skincare masculino: rutina básica de 3 pasos</h3>
+            <p class="pc-desc">La piel masculina es un 25% más gruesa que la femenina, con mayor producción de sebo y menor tendencia a la deshidratación superficial. Aun así, necesita limpieza, hidratación y protección solar. Aprende los 3 pasos básicos adaptados a la piel del hombre y qué ingredientes funcionan mejor.</p>
+            <div class="pc-footer"><span>7 min · May 2024</span></div>
+          </div>
+        </div>
+
+        <!-- PIEL E INGREDIENTES -->
+        <div class="pcard c-piel" data-cat="piel">
+          <div class="pc-img"><div class="pc-stripe"></div>🔬</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-piel">Ingredientes activos</div>
+            <h3 class="pc-title">Retinol: qué es, cómo funciona y precauciones</h3>
+            <p class="pc-desc">El retinol es una forma de vitamina A que acelera la renovación celular y estimula la producción de colágeno. Se mide en concentraciones de 0,025% (principiantes) a 1% (avanzado). Aprende sobre la "purga del retinol", la fotosensibilización que causa y por qué debe usarse solo por la noche con protector solar diurno.</p>
+            <div class="pc-footer"><span>12 min · Abr 2024</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-piel" data-cat="piel">
+          <div class="pc-img"><div class="pc-stripe"></div>💧</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-piel">Ingredientes activos</div>
+            <h3 class="pc-title">Ácido hialurónico: pesos moleculares y función</h3>
+            <p class="pc-desc">El ácido hialurónico puede retener hasta 1.000 veces su peso en agua. Su efecto depende del peso molecular: el de alto peso actúa en la superficie (hidratación inmediata), el de bajo peso penetra más profundamente. Aprende por qué un suero con múltiples pesos moleculares es más efectivo y cómo aplicarlo correctamente.</p>
+            <div class="pc-footer"><span>9 min · Mar 2024</span></div>
+          </div>
+        </div>
+
+        <div class="pcard c-piel" data-cat="piel">
+          <div class="pc-img"><div class="pc-stripe"></div>🌟</div>
+          <div class="pc-body">
+            <div class="pc-cat cat-piel">Ingredientes activos</div>
+            <h3 class="pc-title">Niacinamida: beneficios y compatibilidad</h3>
+            <p class="pc-desc">La niacinamida (vitamina B3) es uno de los ingredientes más versátiles del skincare: regula el sebo, reduce los poros visibles, unifica el tono y refuerza la barrera cutánea. Al 2–5% para piel sensible, al 10% para efectos más potentes. Aprende qué ingredientes combina bien y cuáles pueden neutralizarse entre sí.</p>
+            <div class="pc-footer"><span>10 min · Feb 2024</span></div>
+          </div>
+        </div>
+
+      </div><!-- /pgrid -->
+
+      <!-- MID AD -->
+      <div class="ad ad-mid">[ Espacio publicitario — 728×90 ]</div>
+
+      <!-- FULL ARTICLE -->
+      <div class="sh" id="articulos">
+        <div class="sh-eyebrow">Artículo destacado</div>
+        <div class="sh-right">
+          <div class="sh-title">Artículo del Mes</div>
+          <span class="sh-sub">Mayo 2025</span>
+        </div>
+      </div>
+
+      <article class="full-art">
+        <div class="fa-banner">
+          <div class="fa-banner-lines"></div>
+          <span style="position:relative;z-index:1">🦶</span>
+          <div class="fa-overlay"></div>
+        </div>
+        <div class="fa-body">
+          <div class="fa-badges">
+            <span class="badge badge-coral">Cuidado de pies</span>
+            <span class="badge badge-edu">📚 Contenido Educativo</span>
+          </div>
+          <h1 class="fa-h1">Cremas para Pies: Ingredientes Activos y Cómo Elegir la Correcta</h1>
+          <div class="fa-byline">
+            <span>Por Equipo Editorial Empresa Estética Provinet</span><span>·</span>
+            <span>Mayo 2025</span><span>·</span><span>13 min de lectura</span><span>·</span>
+            <span>🏷 Pies · Ingredientes</span>
+          </div>
+          <div class="fa-text">
+            <p>Los pies son la parte del cuerpo más expuesta a la fricción, el peso y la presión diaria, pero paradójicamente suelen recibir menos atención que el rostro o las manos en las rutinas de cuidado personal. Entender qué ingredientes actúan en la piel del pie y cómo funcionan permite elegir el producto más adecuado para cada necesidad.</p>
+            <div class="callout">
+              <div class="callout-lbl">ℹ Nota Educativa</div>
+              <p>Este artículo tiene fines exclusivamente informativos. No vendemos cremas ni productos cosméticos. Para problemas dermatológicos en los pies, consulta siempre a un podólogo o dermatólogo.</p>
+            </div>
+            <h2>La Piel del Pie: Por Qué Es Diferente</h2>
+            <p>La piel de la planta del pie y el talón es la más gruesa del cuerpo humano, con un estrato córneo que puede alcanzar varios milímetros. Esta zona carece de glándulas sebáceas, por lo que no tiene la capa lipídica natural que protege otras zonas del cuerpo. Eso explica por qué los pies se resecan con tanta facilidad y requieren cremas con formulaciones más potentes.</p>
+            <h3>Ingredientes hidratantes vs queratolíticos</h3>
+            <p>Existen dos tipos principales de activos en cremas de pies. Los <strong>humectantes</strong> (glicerina, ácido hialurónico, aloe vera) atraen agua hacia la piel. Los <strong>queratolíticos</strong> (urea, ácido láctico, ácido salicílico) disuelven las uniones entre las células muertas del estrato córneo, ablandando la piel endurecida.</p>
+            <table class="info-table">
+              <thead><tr><th>Ingrediente</th><th>Tipo de acción</th><th>Concentración habitual</th><th>Para qué tipo de pie</th></tr></thead>
+              <tbody>
+                <tr><td>Urea</td><td>Humectante + queratolítico</td><td>10–40%</td><td>Pies secos, callosidades, talones agrietados</td></tr>
+                <tr><td>Glicerina</td><td>Humectante</td><td>5–15%</td><td>Pies secos suaves, mantenimiento</td></tr>
+                <tr><td>Ácido láctico</td><td>Queratolítico + humectante</td><td>5–12%</td><td>Piel gruesa, pies con textura rugosa</td></tr>
+                <tr><td>Ácido salicílico</td><td>Queratolítico</td><td>2–10%</td><td>Callosidades, ojos de gallo</td></tr>
+                <tr><td>Manteca de karité</td><td>Emoliente (sella la hidratación)</td><td>5–30%</td><td>Talones con fisuras, pies muy secos</td></tr>
+                <tr><td>Alantoína</td><td>Calmante + regenerador</td><td>0,1–2%</td><td>Piel irritada, fisuras dolorosas</td></tr>
+              </tbody>
+            </table>
+            <h2>Cómo Aplicar la Crema de Pies Correctamente</h2>
+            <p>El momento ideal para aplicar crema de pies es inmediatamente después del baño, cuando la piel aún está ligeramente húmeda, ya que la humedad residual potencia la absorción de los humectantes. Aplica la crema con un masaje circular desde los dedos hasta el talón, prestando especial atención a las zonas más secas.</p>
+            <div class="info-box">
+              <div class="info-box-lbl">💡 Técnica oclusiva para talones muy agrietados</div>
+              <p>Aplica una capa generosa de crema con urea 20–40% en los talones. Cubre con film de plástico y pon calcetines de algodón. Deja actuar toda la noche. La oclusión multiplica la penetración del activo al impedir la evaporación. Repite 3–4 noches seguidas para resultados visibles.</p>
+            </div>
+            <h2>Urea: El Activo Estrella para los Pies</h2>
+            <p>La urea es un componente natural del Factor de Hidratación Natural (NMF) de la piel. En concentraciones bajas (2–10%) actúa como humectante puro. A partir del 10–20% comienza su acción queratolítica suave. Al 30–40% tiene un efecto disolvente más potente, usado en fisuras profundas y callosidades marcadas. La urea al 40% es la concentración máxima en cosmética de libre dispensación.</p>
+            <div class="warn-box">
+              <div class="warn-lbl">⚠ Para tener en cuenta</div>
+              <p>Las cremas con ácido salicílico o urea en concentraciones altas (más del 20%) no deben aplicarse en heridas abiertas, piel muy irritada ni durante el embarazo sin supervisión médica. Tampoco deben usarse en la zona interdigital (entre los dedos) de forma prolongada sin recomendación profesional.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- MORE ARTICLES -->
+      <div class="sh">
+        <div class="sh-eyebrow">Continúa leyendo</div>
+        <div class="sh-title">Más Artículos</div>
+      </div>
+      <div class="alist">
+        <div class="aitem">
+          <div class="anum">06</div>
+          <div>
+            <div class="ai-cat cat-cabello">Cabello · Ingredientes</div>
+            <div class="ai-title">Aceites capilares: jojoba, argán, coco y ricino comparados</div>
+            <p class="ai-desc">Cada aceite capilar tiene un peso molecular y una composición de ácidos grasos distintos que determinan si penetra el cabello (coco, argán) o actúa en la superficie sellando la cutícula (jojoba, ricino). Aprende cuál es más adecuado según el tipo de cabello y cómo aplicarlos.</p>
+            <div class="ai-meta"><span>10 min</span><span>·</span><span>Abr 2025</span></div>
+          </div>
+        </div>
+        <div class="aitem">
+          <div class="anum">07</div>
+          <div>
+            <div class="ai-cat cat-piel">Piel · Protección</div>
+            <div class="ai-title">Protector solar: SPF, UVA, UVB y cómo elegir el correcto</div>
+            <p class="ai-desc">El SPF (Sun Protection Factor) mide la protección contra los rayos UVB (quemaduras). La protección UVA se indica con el símbolo PA o el círculo UVA. Un SPF 50 bloquea el 98% de la radiación UVB. Aprende la diferencia entre filtros químicos y físicos (minerales) y por qué la reaplicación cada 2 horas es fundamental.</p>
+            <div class="ai-meta"><span>11 min</span><span>·</span><span>Mar 2025</span></div>
+          </div>
+        </div>
+        <div class="aitem">
+          <div class="anum">08</div>
+          <div>
+            <div class="ai-cat cat-estetica">Estética · Facial</div>
+            <div class="ai-title">Exfoliantes faciales: físicos vs químicos y cómo usarlos</div>
+            <p class="ai-desc">Los exfoliantes físicos (micropartículas, cepillos) eliminan células muertas por abrasión mecánica. Los exfoliantes químicos (AHA, BHA, PHA) disuelven las uniones entre células mediante ácidos. Aprende qué tipo de exfoliante conviene a cada tipo de piel, la frecuencia de uso y por qué el exceso irrita la barrera cutánea.</p>
+            <div class="ai-meta"><span>9 min</span><span>·</span><span>Feb 2025</span></div>
+          </div>
+        </div>
+        <div class="aitem">
+          <div class="anum">09</div>
+          <div>
+            <div class="ai-cat cat-hombre">Estética masculina · Cabello</div>
+            <div class="ai-title">Productos para el cabello masculino: cera, pomada, gel y arcilla</div>
+            <p class="ai-desc">La cera capilar aporta fijación flexible con brillo; la pomada da acabado brillante y fijación media; el gel fija con acabado húmedo; la arcilla da textura mate con fijación alta. Aprende la composición de cada uno, cómo aplicarlos en cabello seco o ligeramente húmedo y cómo retirarlos sin dañar el cuero cabelludo.</p>
+            <div class="ai-meta"><span>8 min</span><span>·</span><span>Ene 2025</span></div>
+          </div>
+        </div>
+        <div class="aitem">
+          <div class="anum">10</div>
+          <div>
+            <div class="ai-cat cat-piel">Piel · Historia</div>
+            <div class="ai-title">Historia del cuidado de la piel: del kohl egipcio al skincare moderno</div>
+            <p class="ai-desc">Los egipcios usaban aceite de ricino como hidratante hace 5.000 años. Los griegos preparaban cremas con manteca de cerdo y miel. El primer protector solar moderno se sintetizó en 1928. El retinol fue aprobado por la FDA como tratamiento antienvejecimiento en 1971. Un siglo de ciencia en cada sérum.</p>
+            <div class="ai-meta"><span>13 min</span><span>·</span><span>Dic 2024</span></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="ad ad-side">[ Espacio publicitario — 300×250 ]</div>
+      <div class="widget">
+        <div class="w-head wh-coral">Categorías</div>
+        <div class="w-body">
+          <div class="cat-row"><span class="cat-lnk">Cuidado de pies</span><span class="cat-badge">6</span></div>
+          <div class="cat-row"><span class="cat-lnk">Cuidado del cabello</span><span class="cat-badge">5</span></div>
+          <div class="cat-row"><span class="cat-lnk">Estética general</span><span class="cat-badge">5</span></div>
+          <div class="cat-row"><span class="cat-lnk">Estética masculina</span><span class="cat-badge">5</span></div>
+          <div class="cat-row"><span class="cat-lnk">Ingredientes activos</span><span class="cat-badge">6</span></div>
+          <div class="cat-row"><span class="cat-lnk">Protección solar</span><span class="cat-badge">3</span></div>
+          <div class="cat-row"><span class="cat-lnk">Rutinas de cuidado</span><span class="cat-badge">4</span></div>
+          <div class="cat-row"><span class="cat-lnk">Historia de la belleza</span><span class="cat-badge">3</span></div>
+        </div>
+      </div>
+      <div class="tip-w">
+        <div class="tip-lbl">💡 Dato de belleza de la semana</div>
+        <p class="tip-txt">"La urea en concentración del 40% es la más alta permitida en cosmética sin receta. Es tan efectiva en callosidades que los podólogos la usan como alternativa no invasiva al fresado mecánico."</p>
+        <div class="tip-by">— Equipo Editorial Empresa Estética Provinet · Mayo 2025</div>
+      </div>
+      <div class="ad ad-side">[ Espacio publicitario — 300×250 ]</div>
+      <div class="widget">
+        <div class="w-head wh-dark">Etiquetas</div>
+        <div class="w-body">
+          <div class="tag-cloud">
+            <span class="tag">crema de urea</span>
+            <span class="tag">retinol piel</span>
+            <span class="tag">ácido hialurónico</span>
+            <span class="tag">niacinamida</span>
+            <span class="tag">champú sin sulfatos</span>
+            <span class="tag">mascarilla capilar</span>
+            <span class="tag">talones agrietados</span>
+            <span class="tag">barba hombre</span>
+            <span class="tag">skincare masculino</span>
+            <span class="tag">pedicura técnica</span>
+            <span class="tag">SPF protección</span>
+            <span class="tag">aceite jojoba</span>
+            <span class="tag">exfoliante AHA</span>
+            <span class="tag">porosidad cabello</span>
+            <span class="tag">rutina skincare</span>
+            <span class="tag">manicura uñas</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- KNOW STRIP -->
+<section class="know">
+  <div class="container">
+    <div class="know-grid">
+      <div class="kstat"><div class="knum">17+</div><div class="klbl">Guías documentadas</div><div class="kdesc">Pies, cabello, piel, estética y más</div></div>
+      <div class="kstat"><div class="knum">8</div><div class="klbl">Categorías temáticas</div><div class="kdesc">Ingredientes, rutinas, historia y técnicas</div></div>
+      <div class="kstat"><div class="knum">0</div><div class="klbl">Marcas mencionadas</div><div class="kdesc">Contenido objetivo sin patrocinios</div></div>
+      <div class="kstat"><div class="knum">100%</div><div class="klbl">Contenido gratuito</div><div class="kdesc">Sin registro, sin suscripción, acceso libre</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="values">
+        <div class="val"><div class="val-ico">📚</div><div><div class="val-t">Rigor científico</div><div class="val-d">Cada artículo se basa en cosmética y dermatología con fuentes especializadas verificadas.</div></div></div>
+        <div class="val"><div class="val-ico">🚫</div><div><div class="val-t">Sin marcas ni links ocultos</div><div class="val-d">No nombramos fabricantes. No hay enlaces ocultos, rastreadores ni redirecciones comerciales en esta página.</div></div></div>
+        <div class="val"><div class="val-ico">👨👩</div><div><div class="val-t">Para hombres y mujeres</div><div class="val-d">Cubrimos el cuidado personal sin distinción de género: rutinas, ingredientes y técnicas para todos.</div></div></div>
+        <div class="val"><div class="val-ico">🔒</div><div><div class="val-t">Privacidad total</div><div class="val-d">Cumplimos el RGPD. Solo Google Fonts y AdSense (con consentimiento) están presentes en este sitio.</div></div></div>
+      </div>
+      <div>
+        <div class="a-label">Sobre Empresa Estética Provinet</div>
+        <h2 class="a-h2">La belleza<br>empieza con<br><em>conocerla.</em></h2>
+        <p class="a-p"><strong style="color:rgba(255,255,255,.8)">Empresa Estética Provinet</strong> es un blog de divulgación educativa sobre estética, cuidado personal y belleza. Cubrimos cremas para pies, cuidado del cabello, skincare, rutinas de belleza masculina y femenina, e ingredientes activos cosméticos.</p>
+        <p class="a-p">No vendemos productos cosméticos ni ofrecemos servicios de estética. Todo el contenido es <strong style="color:rgba(255,255,255,.8)">exclusivamente educativo e informativo</strong>, sin afiliación ni patrocinio de ningún fabricante o distribuidor.</p>
+        <div class="disc-box">
+          <p>⚠ <strong style="color:rgba(255,255,255,.6)">Aviso:</strong> El contenido de este blog no reemplaza el criterio de un dermatólogo, cosmetólogo o podólogo certificado. Para afecciones cutáneas o problemas de salud relacionados, consulta siempre a un profesional de salud cualificado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="f-brand">Empresa <span>Estética</span> Provinet</div>
+        <p class="f-desc">Blog educativo sobre estética, cuidado de pies, cabello y belleza para hombres y mujeres. Contenido 100% informativo. Sin ventas ni servicios comerciales. Sin links ocultos.</p>
+      </div>
+      <div>
+        <div class="f-col-title">Cuidados</div>
+        <div class="f-links">
+          <span>Cuidado de pies</span>
+          <span>Cuidado del cabello</span>
+          <span>Estética general</span>
+          <span>Estética masculina</span>
+          <span>Ingredientes activos</span>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Blog</div>
+        <div class="f-links">
+          <span>Artículos recientes</span>
+          <span>Lo más leído</span>
+          <span>Glosario cosmético</span>
+          <span>Guía de ingredientes</span>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Legal</div>
+        <div class="f-links">
+          <span onclick="openPriv()" style="cursor:pointer">Política de Privacidad</span>
+          <span onclick="openTerm()" style="cursor:pointer">Términos de Uso</span>
+          <span>Política de Cookies</span>
+          <span>Aviso Legal</span>
+        </div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Empresa Estética Provinet — Blog Educativo de Belleza y Cuidado Personal. Todos los derechos reservados.</span>
+      <div class="f-legal">
+        <span onclick="openPriv()">Privacidad</span>
+        <span onclick="openTerm()">Términos</span>
+        <span>Cookies</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- PRIVACY MODAL -->
+<div class="m-ov" id="mPriv" onclick="if(event.target===this)closePriv()">
+  <div class="modal">
+    <div class="modal-hd"><div class="modal-hd-t">Política de Privacidad</div><button class="modal-x" onclick="closePriv()">✕</button></div>
+    <div class="modal-bd">
+      <p><strong>Última actualización:</strong> 1 de enero de 2025</p>
+      <h3>1. Identificación del Responsable</h3>
+      <p>Empresa Estética Provinet es un blog educativo sobre estética y cuidado personal. Contacto: <strong>empresaesteticaprovinet@gmail.com</strong></p>
+      <h3>2. Finalidad del Blog</h3>
+      <p>Este sitio publica exclusivamente contenido educativo sobre estética, cuidado de pies, cabello e ingredientes cosméticos. No comercializa productos ni servicios. No contiene enlaces de afiliados ni rastreadores comerciales.</p>
+      <h3>3. Recursos Externos en Esta Página</h3>
+      <p>Esta página solo carga recursos de <strong>Google Fonts</strong> (tipografía visual, sin rastreo) y puede mostrar espacios de <strong>Google AdSense</strong> si el usuario acepta las cookies publicitarias. No hay ningún otro recurso externo.</p>
+      <h3>4. Datos que Recopilamos</h3>
+      <ul>
+        <li><strong>Cookies analíticas:</strong> datos de navegación anonimizados (Google Analytics, IP anonimizada) solo si se aceptan.</li>
+        <li><strong>Cookies publicitarias:</strong> Google AdSense solo si el usuario acepta.</li>
+        <li><strong>No recopilamos</strong> datos de formularios ni registros de usuario.</li>
+      </ul>
+      <h3>5. Google AdSense</h3>
+      <p>Puedes deshabilitar la publicidad personalizada en <strong>www.aboutads.info</strong>. Política de Google: <strong>policies.google.com/privacy</strong>.</p>
+      <h3>6. Base Legal</h3>
+      <p>(a) Consentimiento explícito al aceptar cookies; (b) interés legítimo en el análisis anónimo del rendimiento editorial.</p>
+      <h3>7. Derechos del Usuario</h3>
+      <p>Gestiona tus cookies en el banner o en la configuración de tu navegador. Contacto: <strong>empresaesteticaprovinet@gmail.com</strong></p>
+      <h3>8. Transferencias Internacionales</h3>
+      <p>Los datos de Google pueden transferirse fuera del EEE con Cláusulas Contractuales Tipo aprobadas por la Comisión Europea.</p>
+      <h3>9. Cambios en esta Política</h3>
+      <p>Los cambios relevantes se comunicarán en esta misma página con la fecha de actualización.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS MODAL -->
+<div class="m-ov" id="mTerm" onclick="if(event.target===this)closeTerm()">
+  <div class="modal">
+    <div class="modal-hd"><div class="modal-hd-t">Términos de Uso</div><button class="modal-x" onclick="closeTerm()">✕</button></div>
+    <div class="modal-bd">
+      <p><strong>Última actualización:</strong> 1 de enero de 2025</p>
+      <h3>1. Naturaleza del Sitio</h3>
+      <p>Empresa Estética Provinet es un blog educativo. Todo el contenido es informativo y no constituye asesoramiento médico, dermatológico ni recomendación de compra. No contiene enlaces ocultos ni afiliaciones comerciales.</p>
+      <h3>2. Limitación de Responsabilidad</h3>
+      <p>La información publicada no reemplaza el criterio de un profesional de la salud o la estética. Para afecciones cutáneas, consulta siempre a un dermatólogo o podólogo cualificado.</p>
+      <h3>3. Propiedad Intelectual</h3>
+      <p>Todos los textos e ilustraciones son propiedad de Empresa Estética Provinet. Se prohíbe la reproducción sin autorización escrita previa.</p>
+      <h3>4. Publicidad de Terceros</h3>
+      <p>Este blog puede contener espacios de Google AdSense (solo con consentimiento). No respaldamos los productos anunciados.</p>
+      <h3>5. Sin Marcas ni Afiliaciones</h3>
+      <p>No se mencionan marcas. No existe ningún acuerdo de afiliación ni patrocinio con ninguna empresa de cosmética o estética.</p>
+      <h3>6. Ley Aplicable</h3>
+      <p>Estos términos se rigen por la legislación española.</p>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie" id="cookieBar">
+  <div class="cookie-txt">
+    🍪 Usamos cookies de análisis y publicidad (Google AdSense) solo con tu consentimiento. Sin otros rastreadores. Más info: <span class="priv-lnk" onclick="openPriv()">Política de Privacidad</span>.
+  </div>
+  <div class="c-btns">
+    <button class="btn-cr" onclick="rejectC()">Solo necesarias</button>
+    <button class="btn-ca" onclick="acceptC()">Aceptar todo</button>
+  </div>
+</div>
+
+<script>
+  function acceptC(){document.getElementById('cookieBar').style.display='none';localStorage.setItem('eep_c','all')}
+  function rejectC(){document.getElementById('cookieBar').style.display='none';localStorage.setItem('eep_c','ess')}
+  if(localStorage.getItem('eep_c'))document.getElementById('cookieBar').style.display='none';
+  function openPriv(){document.getElementById('mPriv').classList.add('open');document.body.style.overflow='hidden'}
+  function closePriv(){document.getElementById('mPriv').classList.remove('open');document.body.style.overflow=''}
+  function openTerm(){document.getElementById('mTerm').classList.add('open');document.body.style.overflow='hidden'}
+  function closeTerm(){document.getElementById('mTerm').classList.remove('open');document.body.style.overflow=''}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePriv();closeTerm()}});
+  function goTo(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+  document.querySelectorAll('.cf-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.cf-btn').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      const cat=btn.dataset.cat;
+      document.querySelectorAll('.pcard').forEach(card=>{
+        card.style.display=(cat==='all'||card.dataset.cat===cat)?'':'none';
+      });
+    });
+  });
+  const secs=['inicio','catalogo','articulos','nosotros'];
+  const navSpans=document.querySelectorAll('nav span');
+  window.addEventListener('scroll',()=>{
+    let cur='inicio';
+    secs.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-90)cur=id});
+    navSpans.forEach((s,i)=>s.classList.toggle('active',i===secs.indexOf(cur)));
+  });
+</script>
+</body>
+</html>
